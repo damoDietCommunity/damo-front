@@ -10,7 +10,8 @@ const SignUp = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [isEmailSent, setIsEmailSent] = useState(false);
-
+  const navigate = useNavigate();
+  
   const handleSendVerificationCode = async (event) => {
     event.preventDefault();
     try {

@@ -20,7 +20,7 @@ export const Label = styled.label`
   align-items: center;
   font-size: 1rem;
   width: 100%;
-  flex: 1;
+  white-space: nowrap;
 `;
 
 export const Input = styled.input`
@@ -29,7 +29,8 @@ export const Input = styled.input`
   border-radius: 8px;
   font-size: 1rem;
   border: 1px solid var(--gray-dark);
-  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1; //공간이 부족할 때 줄어들 수 있음
   box-sizing: border-box;
 `;
 
