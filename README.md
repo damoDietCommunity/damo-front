@@ -25,6 +25,8 @@ $ cd damo-front
 $ npm install
 $ npm run dev
 ```
+개발 서버가 실행된 후, 브라우저에서 [http://localhost:5371](http://localhost:5371)로 접속하세요.
+
 
 <br/><br/>
 ## 🔧 기술 스택 
