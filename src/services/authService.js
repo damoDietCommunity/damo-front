@@ -10,6 +10,7 @@ export const refresh = async (refreshToken) => {
         return response.data;
     } catch (error) {
         console.error(`refresh error: `, error);
+        throw(error);
     }
 }
 
@@ -19,6 +20,7 @@ export const login = async({name, password}) => {
         return response.data;
     } catch (error) {
         console.error(`login error: `, error);
+        throw(error);
     }
 }
 
@@ -27,6 +29,7 @@ export const sendEmail = async({email}) => {
         await axios.post('/auth/signup/email/send', { email });
     } catch (error) {
         console.error(`sendEmail error: `, error);
+        throw(error);
     }
 }
 
@@ -35,5 +38,6 @@ export const signup = async({email, name, password, verificationCode}) => {
         await axios.post('/auth/signup', {email, name, password, verificationCode});
     } catch (error) {
         console.error(`signup error: `, error);
+        throw(error);
     }
 }

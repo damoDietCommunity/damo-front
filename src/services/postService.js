@@ -6,6 +6,7 @@ export const getPosts = async () => {
         return response.data;
     } catch (error) {
         console.error('getPosts error:', error);
+        throw(error);
     }
 }
 
@@ -15,6 +16,7 @@ export const getPost = async ( postId ) => {
         return response.data;
     } catch (error) {
         console.error('getPost error:', error);
+        throw(error);
     }
 }
 
@@ -31,6 +33,7 @@ export const createPost = async ({ title, content, images, accessToken }) => {
         return response.data;
     } catch (error) {
         console.error('createPost error:', error);
+        throw(error);
     }
 }
 
@@ -45,6 +48,7 @@ export const updatePost = async ({ postId, title, content, images, accessToken }
         return response.data;
     } catch (error) {
         console.error('updatePost error:', error);
+        throw(error);
     }
 }
 
@@ -57,6 +61,7 @@ export const deletePost = async ({ postId, accessToken }) => {
         });
     } catch (error) {
         console.error('deletePost error:', error);
+        throw(error);
     }
 }
 
@@ -66,6 +71,7 @@ export const getComments = async ( postId ) => {
         return response.data;
     } catch (error) {
         console.error('getComments error:', error);
+        throw(error);
     }
 }
 
@@ -80,6 +86,7 @@ export const createComment = async ({ postId, content, accessToken }) => {
         return response.data;
     } catch (error) {
         console.error('createComment error:', error);
+        throw(error);
     }
 }
 
@@ -92,5 +99,6 @@ export const deleteComment = async ({ postId, commentId, accessToken }) => {
         });
     } catch (error) {
         console.error('deleteComment error:', error);
+        throw(error);
     }
 }
