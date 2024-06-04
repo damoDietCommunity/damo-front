@@ -1,7 +1,7 @@
 // 토큰 만료를 감지하고, 만료 시 자동으로 로그아웃
 import axios from 'axios';
-import { store } from '../store/store';
-import { logout } from '../store/authSlice';
+import { store } from '../redux/store';
+import { logout } from '../redux/authSlice';
 
 const axiosInstance = axios.create({
     baseURL: process.env.REACT_APP_API_BASE_URL,

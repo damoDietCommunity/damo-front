@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../styles/StyledComponents';
 import {FormContainer, Label, InfoSet, Title, Input} from '../styles/LoginSignupStyle';
 import { useDispatch } from 'react-redux';
-import { login as loginAction, setTokens } from '../redux/authSlice';
+import { login as loginAction, setTokens, logout } from '../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import { login, refresh } from '../services/authService';
@@ -45,6 +45,7 @@ const Login = () => {
             }));
         } catch (error) {
             console.error('handleRefresh error:', error);
+            dispatch(logout());
         }
     }
 
