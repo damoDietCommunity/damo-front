@@ -27,7 +27,7 @@ export const Post = styled.div`
   margin: 10px;
 
   &:hover {
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -38,7 +38,7 @@ export const Image = styled.div`
 
 export const PostTitle = styled.div`
   padding: 0.5rem;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 800;
   overflow: hidden;
   text-overflow: ellipsis;

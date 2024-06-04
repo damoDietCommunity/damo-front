@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const baseButtonStyles = css`
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 2rem;
   cursor: pointer;
   text-decoration: none;
   margin: 5px;
@@ -55,6 +55,6 @@ export const Wrapper = styled.div`
 export const StyledHr = styled.hr`
   border: none;
   border-top: 2px solid var(--gray-medium);
-  margin: 20px 0;
+  margin: 0 0 2rem 0;
   width: 100%;
 `;

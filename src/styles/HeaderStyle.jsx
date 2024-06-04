@@ -20,10 +20,10 @@ export const LogoSection = styled.section`
 
 export const LogoText = styled.div`
   font-weight: 800;
-  font-size: 2.5rem;
+  font-size: 2rem;
 
   @media (max-width: 576px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -31,7 +31,7 @@ export const HeaderMenu = styled.div`
   display: flex;
   gap: 2rem;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-left: auto;
 
   @media (max-width: 992px) {

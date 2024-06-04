@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const PostContainer = styled.div`
-  padding: 2rem;
+  padding: 1rem;
   background-color: var(--gray-light);
   border-radius: 8px;
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@ export const PostContainer = styled.div`
 `;
 
 export const PostTitle = styled.h1`
-  font-size: 2em;
+  font-size: 2rem;
   margin-bottom: 10px;
   color: black;
 `;
@@ -28,7 +28,6 @@ export const CommentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
 `;
 
 export const InfoSet = styled.div`
@@ -111,7 +110,7 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label`
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 8px;
   color: black;
 `;
@@ -132,8 +131,8 @@ export const Input = styled.input`
 `;
 
 export const Textarea = styled.textarea`
-  padding: 12px;
-  font-size: 1rem;
+  padding: 0.7rem;
+  font-size: 0.7rem;
   margin-bottom: 1.5rem;
   border: 1px solid var(--gray-medium);
   border-radius: 6px;
@@ -155,21 +154,21 @@ export const FileInput = styled.input`
 `;
 
 export const ImagePreview = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
 
   span {
     display: inline-block;
     margin-right: 10px;
-    font-size: 14px;
+    font-size: 0.8rem;
     color: black;
   }
 
   img {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 8px;
     object-fit: cover;
   }
 `;

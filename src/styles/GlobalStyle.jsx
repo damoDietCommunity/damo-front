@@ -6,11 +6,7 @@ const GlobalStyle = createGlobalStyle`
     --gray-light: #f0f0f0;
     --gray-medium: #e0e0e0;
     --gray-dark: #c0c0c0;
-    --font-family: 'Noto Sans KR', sans-serif;
-    text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    --font-family: 'NanumSquareExtraBold'; 'Noto Sans KR', sans-serif;
   }
 
   * {

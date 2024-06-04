@@ -73,7 +73,7 @@ export const DamoTextContainer = styled.div`
 
 export const BounceHeading = styled.h1`
   margin: 1rem 0 0 0;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   animation: ${bounce} 1s 2;
 
@@ -87,11 +87,11 @@ export const BounceHeading = styled.h1`
 `;
 
 export const FadeInText = styled.h3`
-  font-size: 2rem;
+  font-size: 1.8rem;
   animation: ${fadeIn} 1500ms 800ms both;
 
   @media (max-width: 768px) {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
 
   @media (max-width: 500px) {

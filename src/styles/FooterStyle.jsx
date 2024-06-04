@@ -8,6 +8,6 @@ export const FooterSection = styled.footer`
   color: var(--default-white);
   text-align: center;
   justify-content: center;
-  padding: 1.5rem 0; /* 상하 여백 추가 */
-  font-size: 1rem;
+  padding: 0.7rem 0;
+  font-size: 0.7rem;
 `;
