@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 
 export const getPosts = async () => {
     try {
-        const response = await axios.get('/posts');
+        const response = await axiosInstance.get('/posts');
         return response.data;
     } catch (error) {
         console.error('getPosts error:', error);
@@ -12,7 +12,7 @@ export const getPosts = async () => {
 
 export const getPost = async ( postId ) => {
     try {
-        const response = await axios.get(`/posts/${postId}`);
+        const response = await axiosInstance.get(`/posts/${postId}`);
         return response.data;
     } catch (error) {
         console.error('getPost error:', error);
@@ -22,7 +22,7 @@ export const getPost = async ( postId ) => {
 
 export const createPost = async ({ title, content, images, accessToken }) => {
     try {
-        const response = await axios.post('/posts/create', 
+        const response = await axiosInstance.post('/posts/create', 
             { title, content, images },{
                 headers: {
                     Authorization: `Bearer ${accessToken}`
@@ -39,7 +39,7 @@ export const createPost = async ({ title, content, images, accessToken }) => {
 
 export const updatePost = async ({ postId, title, content, images, accessToken }) => {
     try {
-        const response = await axios.put(`/posts/${postId}`, 
+        const response = await axiosInstance.put(`/posts/${postId}`, 
             { title, content, images }, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
@@ -54,7 +54,7 @@ export const updatePost = async ({ postId, title, content, images, accessToken }
 
 export const deletePost = async ({ postId, accessToken }) => {
     try {
-        await axios.delete(`/posts/${postId}`, {
+        await axiosInstance.delete(`/posts/${postId}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
@@ -67,7 +67,7 @@ export const deletePost = async ({ postId, accessToken }) => {
 
 export const getComments = async ( postId ) => {
     try {
-        const response = await axios.get(`/posts/${postId}/comments`);
+        const response = await axiosInstance.get(`/posts/${postId}/comments`);
         return response.data;
     } catch (error) {
         console.error('getComments error:', error);
@@ -77,7 +77,7 @@ export const getComments = async ( postId ) => {
 
 export const createComment = async ({ postId, content, accessToken }) => {
     try {
-        const response = await axios.post(`/posts/${postId}/comments`, 
+        const response = await axiosInstance.post(`/posts/${postId}/comments`, 
             {content}, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
@@ -92,7 +92,7 @@ export const createComment = async ({ postId, content, accessToken }) => {
 
 export const deleteComment = async ({ postId, commentId, accessToken }) => {
     try {
-        await axios.delete(`/posts/${postId}/comments/${commentId}`, {
+        await axiosInstance.delete(`/posts/${postId}/comments/${commentId}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
