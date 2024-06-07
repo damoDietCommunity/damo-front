@@ -19,10 +19,19 @@
 - npm: 10.5.1
 
 ### 설치 및 실행
+1. **프로젝트 클론 및 의존성 설치**:
 ```bash
 $ git clone https://github.com/damoDietCommunity/damo-front.git
 $ cd damo-front
 $ npm install
+```
+
+2. **Unsplash Access Key 설정**:
+- [Unsplash Developers 페이지](https://unsplash.com/developers)에서 Access Key 발급 받기
+- .env 파일의 your_access_key를 발급 받은 Access Key로 대체하기
+
+3. **개발 서버 실행**:
+```bash
 $ npm run dev
 ```
 개발 서버가 실행된 후, 브라우저에서 [http://localhost:5371](http://localhost:5371)로 접속하세요.

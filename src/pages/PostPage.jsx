@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, StyledHr } from "../styles/StyledComponents";
-import { Container, PostContainer,CommentContainer, ButtonGroup, InfoSet, Field, PostImages, Content, CommentContent, CommentInput, Form, Label, Input, Textarea, FileInput, ImagePreview, Title } from "../styles/PostPageStyle";
+import { Container, PostContainer,CommentContainer, ButtonGroup, InfoSet, Field, Content, CommentContent, CommentInput, Form, Label, Input, Textarea, FileInput, Title } from "../styles/PostPageStyle";
 import { getPost, deletePost, getComments, createComment, deleteComment, updatePost } from '../services/postService';
 import { useSelector } from 'react-redux';
 import Modal from '../components/Modal';
@@ -13,7 +13,6 @@ const PostPage = () => {
   const [newComment, setNewComment] = useState('');
   const [isEditMode, setIsEditMode] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const [images, setImages] = useState([]);
   const accessToken = useSelector((state) => state.auth.accessToken);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const accountId = useSelector((state) => state.auth.accountId);
@@ -28,7 +27,6 @@ const PostPage = () => {
     try {
       const result = await getPost(postId);
       setPost(result);
-      setImages(result.images || []);
     } catch (error) {
       console.error('fetchPost error:', error);
     }
@@ -84,13 +82,10 @@ const PostPage = () => {
     event.preventDefault();
 
     try {
-      const imageURLs = images.map(image => ({ imageUrl: image.imageUrl }));
-
       await updatePost({
         postId,
         title: post.title,
         content: post.content,
-        images: imageURLs,
         accessToken
       });
       alert('게시물이 수정되었습니다.');
@@ -98,17 +93,6 @@ const PostPage = () => {
     } catch (error) {
       console.error('handleUpdatePost error:', error);
     }
-  };
-
-  const handleImageChange = (e) => {
-    const files = Array.from(e.target.files);
-    files.forEach(file => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImages(prev => [...prev, { imageUrl: reader.result, name: file.name }]);
-      };
-      reader.readAsDataURL(file);
-    });
   };
 
   const closeEditMode = () => {
@@ -125,11 +109,6 @@ const PostPage = () => {
             <InfoSet>
               <Field>작성자</Field>{post.authorName}
             </InfoSet>
-            <PostImages>
-              {post.images && post.images.map((image, index) => (
-                <img key={index} src={image.imageUrl} alt={`Post image ${index + 1}`} />
-              ))}
-            </PostImages>
             <Content>{post.content}</Content>
             {post.authorName === accountId && (
               <ButtonGroup>
@@ -189,15 +168,6 @@ const PostPage = () => {
               onChange={(e) => setPost({ ...post, content: e.target.value })}
               required
             ></Textarea>
-            <Label>이미지 파일 - 최대 10개</Label>
-            <FileInput type="file" id="images" multiple onChange={handleImageChange} />
-            {images.length > 0 && (
-              <ImagePreview>
-                {images.map((image, index) => (
-                  <span key={index}>{image.name}</span>
-                ))}
-              </ImagePreview>
-            )}
             <Button type="submit">저장</Button>
           </Form>
         </Modal>

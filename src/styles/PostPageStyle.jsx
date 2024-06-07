@@ -61,20 +61,6 @@ export const Content = styled.div`
   width: 95%;
 `;
 
-export const PostImages = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  
-  img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-  }
-`;
-
 export const CommentContent = styled.div`
   width: calc(100% - 10rem);
   padding: 10px;
@@ -151,26 +137,6 @@ export const FileInput = styled.input`
   margin-bottom: 1.5rem;
   padding: 0 8px;
   color: black;
-`;
-
-export const ImagePreview = styled.div`
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-
-  span {
-    display: inline-block;
-    margin-right: 10px;
-    font-size: 0.8rem;
-    color: black;
-  }
-
-  img {
-    width: 50px;
-    height: 50px;
-    border-radius: 8px;
-    object-fit: cover;
-  }
 `;
 
 export const ButtonGroup = styled.div`

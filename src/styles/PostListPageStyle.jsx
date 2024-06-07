@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
+  padding: 1rem;
   justify-items: center;
   justify-content: center;
   
@@ -24,16 +25,23 @@ export const Post = styled.div`
   overflow: hidden;
   text-align: center;
   cursor: pointer;
-  margin: 10px;
 
   &:hover {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   }
 `;
 
-export const Image = styled.div`
-  height: 200px;
-  background: var(--gray-medium);
+export const ImageWrapper = styled.div`
+  height: 180px;
+  width: 100%;
+  background: var(--gray-light);
+  overflow: hidden;
+`;
+
+export const Image = styled.img`
+  objectFit: 'cover';
+  width: 100%;
+  height: 100%;
 `;
 
 export const PostTitle = styled.div`

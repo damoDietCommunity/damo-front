@@ -1,4 +1,5 @@
 import axiosInstance from '../utils/axiosInstance';
+import axiosUnsplash from '../utils/axiosUnsplash';
 
 export const getPosts = async () => {
     try {
@@ -20,10 +21,24 @@ export const getPost = async ( postId ) => {
     }
 }
 
-export const createPost = async ({ title, content, images, accessToken }) => {
+export const getUnsplashImage = async () => {
+    try {
+        const response = await axiosUnsplash.get('/search/photos', {
+            params: {
+                query: 'diet',
+            }
+        });
+        return response.data.results;
+    } catch (error) {
+        console.error('getUnsplashImage error:', error);
+        throw(error);
+    }
+}
+
+export const createPost = async ({ title, content, accessToken }) => {
     try {
         const response = await axiosInstance.post('/posts/create', 
-            { title, content, images },{
+            { title, content },{
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }
@@ -37,10 +52,10 @@ export const createPost = async ({ title, content, images, accessToken }) => {
     }
 }
 
-export const updatePost = async ({ postId, title, content, images, accessToken }) => {
+export const updatePost = async ({ postId, title, content, accessToken }) => {
     try {
         const response = await axiosInstance.put(`/posts/${postId}`, 
-            { title, content, images }, {
+            { title, content, images: [{imageUrl: "tempUrl"}] }, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }
